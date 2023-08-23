@@ -1,0 +1,67 @@
+.textfield-container {
+  width: 100%;
+  font-size: 16px;
+
+  // TODO: review, workaround input bg turning blueish when autocomplete is user on Chrome, as seen here:
+  // https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: 'color 9999s ease-out, background-color 9999s ease-out';
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+    transition-delay: 9999s;
+    -webkit-transition-delay: 9999s;
+  }
+
+  input {
+    font-weight: 300;
+    color: $cmsGrey3;
+    background-color: $transparent;
+    -webkit-text-fill-color: $cmsGrey3;
+
+    &::placeholder {
+      -webkit-text-fill-color: $cmsGrey2;
+    }
+  }
+
+  .input-container {
+    @include flex(row, space-between, center, no-wrap);
+    width: 100%;
+    border-bottom: solid thin $grey4;
+    padding-bottom: 3px;
+
+    .input-text {
+      line-height: 20px;
+      padding: 1px 2px;
+      width: 100%;
+      border: none;
+      cursor: not-allowed;
+    }
+
+    button {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 5.5px 24.5px;
+      margin-left: 6px;
+
+      &.choose-btn {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .textfield-input {
+    height: 34.23px;
+    line-height: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: solid thin $grey4;
+    padding-bottom: 5px;
+    background-color: $transparent;
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
