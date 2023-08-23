@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import '@testing-library/jest-dom'
+import { ComponentList } from './ComponentList';
+import { render, screen } from '@testing-library/react';
 
 describe('ComponentList', () => {
     it('1 to be 1', () => {
@@ -7,7 +7,8 @@ describe('ComponentList', () => {
     });
 
     it('Render Component', () => {
-        // render(<ComponentList />);
-        // expect(screen.getByText('ComponentList')).toBeInTheDocument();
+        render(<ComponentList />);
+        expect(screen.getByText('Component List')).toBeInTheDocument();
+        expect(screen.getByText('Component List')).toBeTruthy();
     });
 });
