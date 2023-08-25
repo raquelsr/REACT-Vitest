@@ -1,0 +1,15 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  span {
+    padding-left: 8px;
+    font-size: 14px;
+  }
+}

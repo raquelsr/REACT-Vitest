@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Textfield } from '../components/textfield';
-import './ComponentList.css';
+import './ComponentList.scss';
+import { Checkbox, CheckboxMT } from '../components/checkbox';
 
 export const ComponentList = () => {
     const [count, setCount] = useState(0);
-    const [text, setText] = useState('')
+    const [text, setText] = useState('');
+    const [checkbox, setCheckbox] = useState(false);
 
     return (
         <div className='component-list'>
@@ -21,9 +23,9 @@ export const ComponentList = () => {
                 </button>
             </section>
             <section>
-                <div>Text: {text}</div>
+                Value : {text}
                 <Textfield
-                    label='Textfield'
+                    label='Textfield: '
                     name={text}
                     onChange={(event) => {
                         setText(event.target.value)
@@ -31,6 +33,11 @@ export const ComponentList = () => {
                     value={text}
                     placeholder='Type...'
                 />
+            </section>
+            <section className='checkbox-section'>
+                <Checkbox checked={checkbox} />
+                <span>{checkbox ? 'It is checked!' : 'It is NOT checked!'}</span>
+                <CheckboxMT checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
             </section>
         </div>
     );

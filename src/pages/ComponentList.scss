@@ -1,0 +1,28 @@
+.component-list {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "header header header";
+  justify-items: center;
+  align-items: center;
+
+  & h3 {
+    grid-area: header;
+    text-decoration: underline;
+  }
+
+  & .checkbox-section { 
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 20px;
+    }
+    div:first-child {
+      width: 20px;
+      height: 20px;
+      padding-left: 56px;
+    }
+  }
+}
