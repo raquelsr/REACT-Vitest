@@ -3,12 +3,14 @@ import { Textfield } from '../components/textfield';
 import './ComponentList.scss';
 import { Checkbox, CheckboxMT } from '../components/checkbox';
 import { Autocomplete } from '../components/autocomplete';
+import { Textarea } from '../components/textarea';
 
 export const ComponentList = () => {
     const [count, setCount] = useState(0);
     const [text, setText] = useState('');
     const [checkbox, setCheckbox] = useState(false);
     const [autocomplete, setAutocomplete] = useState(null);
+    const [textarea, setTextarea] = useState('');
 
     const autocompleteOptions = [
         { value: 'one', label: 'One' },
@@ -31,7 +33,7 @@ export const ComponentList = () => {
                 </button>
             </section>
             <section>
-                Value : {text}
+                <p>Value : {text}</p>
                 <Textfield
                     label='Textfield: '
                     name={text}
@@ -44,16 +46,25 @@ export const ComponentList = () => {
             </section>
             <section className='checkbox-section'>
                 <Checkbox checked={checkbox} />
-                <span>{checkbox ? 'It is checked!' : 'It is NOT checked!'}</span>
+                <p>{checkbox ? 'It is checked!' : 'It is NOT checked!'}</p>
                 <CheckboxMT checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
             </section>
             <section>
-                <span>Value: {autocomplete}</span>
+                <p>Value: {autocomplete}</p>
                 <Autocomplete
                     placeholder='Autocomplete'
                     options={autocompleteOptions}
                     //@ts-ignore
                     onOptionChange={({ value, label }) => setAutocomplete(value)} />
+            </section>
+            <section>
+                <p>Value: {textarea}</p>
+                <Textarea
+                    name='text'
+                    value={textarea}
+                    onChange={(e) => setTextarea(e.target.value)}
+                    placeholder='Textarea'
+                ></Textarea>
             </section>
         </div>
     );
