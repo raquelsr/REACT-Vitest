@@ -1,5 +1,6 @@
 import React from 'react'
 import { TextfieldProps as Props } from './types'
+import './styles.scss'
 
 export const Textfield: React.FC<Props> = ({
   label,

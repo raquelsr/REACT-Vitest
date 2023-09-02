@@ -1,4 +1,4 @@
-import { logRoles, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ComponentList } from './ComponentList';
 
@@ -55,7 +55,8 @@ describe('Counter', () => {
 describe('Textfield', () => {
     it('write in textfield', async () => {
         render(<ComponentList />);
-        await user.type(screen.getByRole('textbox'), 'Hello World');
+        // await user.type(screen.getByRole('textbox', { name: /textfield/ }), 'Hello World');
+        await user.type(screen.getByPlaceholderText('Type...'), 'Hello World');
         expect(screen.getByText(/Hello World/)).toBeInTheDocument();
     });
 });
@@ -84,3 +85,11 @@ describe('Checkbox - MT', () => {
         expect(screen.getByText('It is checked!')).toBeInTheDocument();
     });
 });
+
+// describe('Autocomplete', () => {
+//     it('renders a Select component', () => {
+//         render(<ComponentList />);
+//         const autocomplete = getByTestId('autocomplete');
+//         expect(autocomplete.querySelector('.react-select-container')).toBeInTheDocument();
+//     });
+// });

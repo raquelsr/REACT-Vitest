@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextareaProps as Props } from './types';
+import './styles.scss';
 
 export const Textarea: React.FC<Props> = ({ label, rows = 0, ...rest }) => {
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);

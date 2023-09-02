@@ -16,19 +16,21 @@
 
   input {
     font-weight: 300;
-    color: $cmsGrey3;
-    background-color: $transparent;
-    -webkit-text-fill-color: $cmsGrey3;
+    color: black;
+    background-color: transparent;
+    -webkit-text-fill-color: black;
 
     &::placeholder {
-      -webkit-text-fill-color: $cmsGrey2;
+      -webkit-text-fill-color: black;
     }
   }
 
   .input-container {
-    @include flex(row, space-between, center, no-wrap);
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
     width: 100%;
-    border-bottom: solid thin $grey4;
+    border-bottom: solid thin black;
     padding-bottom: 3px;
 
     .input-text {
@@ -56,9 +58,9 @@
     line-height: 20px;
     width: 100%;
     border: none;
-    border-bottom: solid thin $grey4;
+    border-bottom: solid thin black;
     padding-bottom: 5px;
-    background-color: $transparent;
+    background-color: transparent;
 
     &:focus{
       outline: none;

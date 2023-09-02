@@ -3,6 +3,7 @@ import { IconProps } from '../icon/types';
 import { CheckboxMTProps } from './types';
 import classnames from 'classnames';
 import { Icon } from '../icon';
+import './styles.scss'
 
 export const CheckboxMT: React.FC<CheckboxMTProps> = ({
   checked,

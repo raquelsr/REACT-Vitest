@@ -4,6 +4,7 @@ import './ComponentList.scss';
 import { Checkbox, CheckboxMT } from '../components/checkbox';
 import { Autocomplete } from '../components/autocomplete';
 import { Textarea } from '../components/textarea';
+import { Accordion } from '../components/accordion';
 
 export const ComponentList = () => {
     const [count, setCount] = useState(0);
@@ -35,8 +36,8 @@ export const ComponentList = () => {
             <section>
                 <p>Value : {text}</p>
                 <Textfield
-                    label='Textfield: '
-                    name={text}
+                    label='Textfield label: '
+                    name='textfield'
                     onChange={(event) => {
                         setText(event.target.value)
                     }}
@@ -65,6 +66,11 @@ export const ComponentList = () => {
                     onChange={(e) => setTextarea(e.target.value)}
                     placeholder='Textarea'
                 ></Textarea>
+            </section>
+            <section>
+                <Accordion title='Accordion'>
+                    Item expanded
+                </Accordion>
             </section>
         </div>
     );

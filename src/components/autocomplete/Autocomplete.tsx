@@ -2,6 +2,7 @@
 import React, { CSSProperties } from 'react'
 import Select, { Props, State, StylesConfig } from 'react-select'
 import { OptionType } from './types'
+import './styles.scss'
 
 export const Autocomplete: React.FC<Props> = ({
   onOptionChange,
@@ -25,7 +26,7 @@ export const Autocomplete: React.FC<Props> = ({
   }
 
   return (
-    <div className='autocomplete-wrapper'>
+    <div className='autocomplete-wrapper' data-testid='autocomplete'>
       <label className='autocomplete-label'>{label}</label>
       <Select
         isDisabled={rest.disabled}
@@ -33,6 +34,7 @@ export const Autocomplete: React.FC<Props> = ({
         onChange={onOptionChange}
         styles={customStyles}
         maxMenuHeight={250}
+        name={name}
         {...rest}
       />
     </div>
