@@ -12,7 +12,7 @@ describe('ComponentList', () => {
     it('render ComponentList', () => {
         render(<ComponentList />);
         expect(screen.getByText('Component List')).toBeInTheDocument();
-        expect(screen.getByRole('heading')).toHaveTextContent('Component List');
+        expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent('Component List');
         expect(screen.getByRole('heading', { name: 'Component List' }));
         expect(screen.getByText('Component List')).toBeTruthy();
     });
@@ -86,10 +86,50 @@ describe('Checkbox - MT', () => {
     });
 });
 
-// describe('Autocomplete', () => {
-//     it('renders a Select component', () => {
-//         render(<ComponentList />);
-//         const autocomplete = getByTestId('autocomplete');
-//         expect(autocomplete.querySelector('.react-select-container')).toBeInTheDocument();
-//     });
-// });
+describe.only('Autocomplete', () => {
+    it('renders a Select component', async () => {
+        render(<ComponentList />);
+        const autocomplete = screen.getByRole('combobox');
+        await user.click(autocomplete)
+        const one = screen.getByText('One');
+        expect(one).toBeInTheDocument();
+        await user.click(one);
+        screen.debug();
+        expect(screen.getByText('Value: one')).toBeInTheDocument();
+        expect(screen.getByText('One')).toBeInTheDocument();
+    });
+    // TODO: Check how to use react-select-testing-library
+});
+
+describe('Textarea', () => {
+    it('updates the textarea value when the Textarea component is changed', async () => {
+        render(<ComponentList />);
+        const textarea = screen.getByPlaceholderText('Textarea');
+        await user.type(textarea, 'Hello there!');
+        const textareaValue = screen.getByText('Value: Hello there!');
+        expect(textareaValue).toBeInTheDocument();
+    });
+});
+
+describe('Accordion', () => {
+    it('renders the title and children', () => {
+        render(<ComponentList />);
+        expect(screen.getByText('Accordion')).toBeInTheDocument()
+        expect(screen.queryByText('Item expanded')).toBeNull()
+        expect(screen.queryByText('Item expanded')).toBeFalsy()
+    })
+
+    it('expands and collapses when the button is clicked', async () => {
+        render(<ComponentList />);
+        const button = screen.getByRole('button', { name: '' })
+        expect(button).toHaveClass('expand-icon')
+        expect(button).not.toHaveClass('expanded')
+        await user.click(button)
+        expect(button).toHaveClass('expanded')
+        screen.debug()
+        expect(screen.getByText('Item expanded')).toBeInTheDocument()
+        await user.click(button)
+        expect(button).not.toHaveClass('expanded')
+        expect(screen.queryByText('Item expanded')).toBeNull()
+    })
+})
