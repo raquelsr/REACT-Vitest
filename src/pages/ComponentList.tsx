@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Textfield } from '../components/textfield';
 import './ComponentList.scss';
 import { Checkbox, CheckboxMT } from '../components/checkbox';
@@ -39,7 +39,7 @@ export const ComponentList = () => {
                     label='Textfield label: '
                     name='textfield'
                     onChange={(event) => {
-                        setText(event.target.value)
+                        setText(event.target.value);
                     }}
                     value={text}
                     placeholder='Type...'
@@ -55,8 +55,9 @@ export const ComponentList = () => {
                 <Autocomplete
                     placeholder='Autocomplete'
                     options={autocompleteOptions}
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     //@ts-ignore
-                    onOptionChange={({ value, label }) => setAutocomplete(value)} />
+                    onOptionChange={({ value }) => setAutocomplete(value)} />
             </section>
             <section>
                 <p>Value: {textarea}</p>
@@ -74,4 +75,4 @@ export const ComponentList = () => {
             </section>
         </div>
     );
-}
+};

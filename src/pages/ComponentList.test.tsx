@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ComponentList } from './ComponentList';
 
-const user = userEvent.setup()
+const user = userEvent.setup();
 
 describe('ComponentList', () => {
     it('1 to be 1', () => {
@@ -86,11 +86,11 @@ describe('Checkbox - MT', () => {
     });
 });
 
-describe.only('Autocomplete', () => {
+describe('Autocomplete', () => {
     it('renders a Select component', async () => {
         render(<ComponentList />);
         const autocomplete = screen.getByRole('combobox');
-        await user.click(autocomplete)
+        await user.click(autocomplete);
         const one = screen.getByText('One');
         expect(one).toBeInTheDocument();
         await user.click(one);
@@ -114,22 +114,22 @@ describe('Textarea', () => {
 describe('Accordion', () => {
     it('renders the title and children', () => {
         render(<ComponentList />);
-        expect(screen.getByText('Accordion')).toBeInTheDocument()
-        expect(screen.queryByText('Item expanded')).toBeNull()
-        expect(screen.queryByText('Item expanded')).toBeFalsy()
-    })
+        expect(screen.getByText('Accordion')).toBeInTheDocument();
+        expect(screen.queryByText('Item expanded')).toBeNull();
+        expect(screen.queryByText('Item expanded')).toBeFalsy();
+    });
 
     it('expands and collapses when the button is clicked', async () => {
         render(<ComponentList />);
-        const button = screen.getByRole('button', { name: '' })
-        expect(button).toHaveClass('expand-icon')
-        expect(button).not.toHaveClass('expanded')
-        await user.click(button)
-        expect(button).toHaveClass('expanded')
-        screen.debug()
-        expect(screen.getByText('Item expanded')).toBeInTheDocument()
-        await user.click(button)
-        expect(button).not.toHaveClass('expanded')
-        expect(screen.queryByText('Item expanded')).toBeNull()
-    })
-})
+        const button = screen.getByRole('button', { name: '' });
+        expect(button).toHaveClass('expand-icon');
+        expect(button).not.toHaveClass('expanded');
+        await user.click(button);
+        expect(button).toHaveClass('expanded');
+        screen.debug();
+        expect(screen.getByText('Item expanded')).toBeInTheDocument();
+        await user.click(button);
+        expect(button).not.toHaveClass('expanded');
+        expect(screen.queryByText('Item expanded')).toBeNull();
+    });
+});

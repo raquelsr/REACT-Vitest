@@ -40,7 +40,8 @@ export const CheckboxMT: React.FC<CheckboxMTProps> = ({
       {...rest}
     >
       <div>
-        {// @ts-ignore
+        {// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           <Icon size={10} name={name} color={checked ? checkedColor || 'black' : color || 'grey'} />
         }
       </div>

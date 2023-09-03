@@ -1,8 +1,8 @@
-//@ts-nocheck
-import React, { CSSProperties } from 'react'
-import Select, { Props, State, StylesConfig } from 'react-select'
-import { OptionType } from './types'
-import './styles.scss'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import React, { CSSProperties } from 'react';
+import Select, { Props, StylesConfig } from 'react-select';
+import './styles.scss';
 
 export const Autocomplete: React.FC<Props> = ({
   onOptionChange,
@@ -10,10 +10,10 @@ export const Autocomplete: React.FC<Props> = ({
   ...rest
 }) => {
   const customStyles: StylesConfig = {
-    control: (base: CSSProperties, state: State<OptionType>) => ({
+    control: (base: CSSProperties) => ({
       ...base,
       border: 'none',
-      borderBottom: `2px solid black`,
+      borderBottom: '2px solid black',
       borderRadius: '0',
       boxShadow: '0',
       background: 'white',
@@ -23,7 +23,7 @@ export const Autocomplete: React.FC<Props> = ({
       backgroundColor: 'white',
       color: 'black',
     }),
-  }
+  };
 
   return (
     <div className='autocomplete-wrapper' data-testid='autocomplete'>
@@ -38,5 +38,5 @@ export const Autocomplete: React.FC<Props> = ({
         {...rest}
       />
     </div>
-  )
-}
+  );
+};

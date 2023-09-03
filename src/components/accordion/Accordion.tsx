@@ -1,11 +1,11 @@
-import classnames from 'classnames'
-import { FC, PropsWithChildren, useState } from 'react'
-import { Icon } from '../icon'
-import { AccordionProps as Props } from './types'
-import './styles.scss'
+import classnames from 'classnames';
+import { FC, PropsWithChildren, useState } from 'react';
+import { Icon } from '../icon';
+import { AccordionProps as Props } from './types';
+import './styles.scss';
 
 export const Accordion: FC<PropsWithChildren<Props>> = ({ title, defaultExpanded, children }) => {
-  const [expanded, expand] = useState(defaultExpanded || false)
+  const [expanded, expand] = useState(defaultExpanded || false);
 
   return (
     <div className='note'>
@@ -23,5 +23,5 @@ export const Accordion: FC<PropsWithChildren<Props>> = ({ title, defaultExpanded
       </div>
       {expanded && <div className={`text ${expanded ? 'expanded' : ''}`} >{children}</div>}
     </div>
-  )
-}
+  );
+};
