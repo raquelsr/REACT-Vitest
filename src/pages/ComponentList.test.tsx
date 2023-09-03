@@ -83,7 +83,7 @@ describe('Tutorial', () => {
         expect(screen.queryByText('Not found')).not.toBeInTheDocument();
     });
 
-    it.only('Debugging', () => {
+    it.skip('Debugging', () => {
         // TODO : Review  https://testing-library.com/docs/dom-testing-library/api-accessibility
         // https://testing-library.com/docs/dom-testing-library/api-debugging
         render(<ComponentList />);
