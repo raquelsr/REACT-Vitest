@@ -21,7 +21,10 @@ export const ComponentList = () => {
 
     return (
         <div className='component-list'>
-            <h3>Component List</h3>
+            <div className='headers'>
+                <h1>Component List</h1>
+                <h2>Components copied from MT project for testing purposes.</h2>
+            </div>
             <section>
                 <p>Counter: {count}</p>
                 <button

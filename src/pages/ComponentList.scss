@@ -7,9 +7,17 @@
   justify-items: center;
   align-items: center;
 
-  & h3 {
+  & .headers {
     grid-area: header;
-    text-decoration: underline;
+
+    h1, h2 {
+      font-size: 14px;
+      padding: 0;
+    }
+    
+    h2 {
+      text-decoration: underline;
+    }
   }
 
   section {

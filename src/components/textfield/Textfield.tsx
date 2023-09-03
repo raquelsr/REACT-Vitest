@@ -18,6 +18,7 @@ export const Textfield: React.FC<Props> = ({
 
       <input
         className='textfield-input'
+        aria-label={label}
         name={name}
         value={value}
         placeholder={placeholder}

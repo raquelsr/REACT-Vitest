@@ -10,6 +10,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
+    "test:maxi": "DEBUG_PRINT_LIMIT=1000000 npm test",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"
   },
